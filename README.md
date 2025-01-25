@@ -24,7 +24,7 @@ npx hardhat ignition deploy ./ignition/modules/HelloWorld.ts
 ```
 3. Interact with the contract (check balance)
 ```shell
-npx hardhat run scripts/getContractBalance.ts --network localhost
+npx hardhat run scripts/HelloWorld.ts --network localhost
 ```
 
 ## Deploy and test the project on Remote Network
@@ -39,5 +39,5 @@ npx hardhat ignition deploy ./ignition/modules/HelloWorld.ts --network <network>
 ```
 3. Interact with the contract (check balance)
 ```shell
-npx hardhat run scripts/getContractBalance.ts --network <network>
+npx hardhat run scripts/HelloWorld.ts --network <network>
 ```
