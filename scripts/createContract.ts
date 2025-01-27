@@ -8,7 +8,7 @@ async function main() {
     output: process.stdout  
   });  
   
-  const contractAddress = "0x6EcD41c69ccF1530Ae8B2e98c1fba81ff9FB1FEb";
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   
   // // Prompt user for input  
   // const jobTitle = await askQuestion(rl, "Enter the job title: ");  
@@ -31,10 +31,10 @@ async function main() {
   
   rl.close();  
   
-  const Freelance = await ethers.getContractFactory("Freelance");
+  const FreelanceFactory = await ethers.getContractFactory("Freelance");
   const [client] = await ethers.getSigners();
    
-  const freelanceContract = Freelance.attach(contractAddress) as Freelance;  
+  const freelanceContract = FreelanceFactory.attach(contractAddress) as Freelance;  
   console.log("Interacting with Freelance contract at:", freelanceContract.target);
   console.log("Interacting with contract using account:", client.address);  
   

@@ -69,7 +69,7 @@ contract Freelance {
       startedAt: 0,
       completedAt: 0,
       client: payable(msg.sender),
-      freelancer: freelancer,
+      freelancer: payable(freelancer),
       paymentAmount: paymentAmount,
       guaranteeAmount: 0,
       ipfsCID: "",
@@ -82,5 +82,17 @@ contract Freelance {
     freelancerContracts[freelancer].push(contractId);
 
     emit ContractCreated(contractId, msg.sender, freelancer);
+  }
+
+  function getContractsAsClient() public view returns (bytes32[] memory) {
+    return clientContracts[msg.sender];
+  }
+
+  function getContractsAsFreelancer() public view returns (bytes32[] memory) {
+    return freelancerContracts[msg.sender];
+  }
+
+  function getContractDetails(bytes32 contractId) public view returns (Contract memory) {
+    return contractMapping[contractId];
   }
 }
